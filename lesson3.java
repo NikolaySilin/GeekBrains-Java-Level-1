@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 
 public class lesson3 {
 
+    private static int score;
+
     public static void main(String[] args) throws InterruptedException {
         guessTheNumber();
 
@@ -18,6 +20,7 @@ public class lesson3 {
             int count = 0;
             int guess = -1;
             int number = random.nextInt(10);
+
 
                 System.out.println("\nПривет, как тебя зовут?");
             String name = scanner.nextLine();
@@ -33,11 +36,11 @@ public class lesson3 {
                 System.out.println("Отгадай случайное число от 0 до 9.");
             guess = scanner.nextInt();
             if (number != guess);
-                System.out.println("Ты " + ((guess > number) ? "угадал." : "не угадал."));
+                System.out.println("Ты " + ((guess > number) ? "угадал." + score++ : "не угадал."));
             count++;
 
         }
-        System.out.println("\nТы " + ((guess == number)? "выйграл!!! " : "проиграл! : " + " и набрал " + number + " балла(ов)"));
+        System.out.println("\nТы " + ((guess == number)? "выйграл!!! " + " и набрал " + score + " балла(ов)" : "проиграл! и набрал " + score + " балла(ов)"));
 
             LOOP: while(true) {
                 System.out.println("\nПопробуем еще разок? Да - 1, Нет - 0");
@@ -46,9 +49,11 @@ public class lesson3 {
                 if (n == 0) {
                 System.out.println("Ваше число: 0, выход из программы");
                 break LOOP;
+
             } else if(n == 1);
                 System.out.println("Ваше число: 1, перезапускаем программу.");
                 TimeUnit.SECONDS.sleep(2);
+                score = 0;
 
                 guessTheNumber();
 
